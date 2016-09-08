@@ -37,6 +37,12 @@ app.controller("controladorFacturacion", function($scope){
 
 	}
 
+	$scope.PrecioFinalConIVAparametro=function(iva){
+		iva_formateado = iva / 100.
+		$scope.resultado = $scope.Sumar() + ($scope.Sumar()*iva_formateado);
+
+	}
+
 
 });//cada vez que se recarga la pagina se recarga el controlador
 
