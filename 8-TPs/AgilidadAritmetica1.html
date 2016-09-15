@@ -8,28 +8,31 @@
 		<link rel="stylesheet" type="text/css" href="../estilo.css">
 		<link rel="stylesheet" type="text/css" href="../animacion.css">
 		<!--final de Estilos-->
-
+<!-- 1)Es necesario para que funcione angular la referencia a este archivo-->
+		<script SRC="bower_components/angular/angular.min.js" TYPE="text/javascript"></script>
 		<!--Lógica-Programación-->
 		<script type="text/javascript" src="jsAgilidadAritmetica1.js"></script>
         <!--Final de Lógica-Programación -->
 		
 
 		</head>
-	<body onload="comenzar()">
+	<body ng-app="AgilidadAritmetica1" ng-controller="controladorAgilidadAritmetica1" ng-init="comenzar()">
 		<div class="CajaUno animated bounceInDown">
 			
 
-			<input type="text" readonly id="PrimerNumero">
-			<input type="text" readonly id="Operador">
-			<input type="text" readonly id="SegundoNumero">
+			<input type="text" readonly id="PrimerNumero" ng-model="datos.randomprimernumero">
+			<input type="text" readonly id="Operador"  ng-model="datos.randomoperador">
+			<input type="text" readonly id="SegundoNumero" ng-model="datos.randomsegundonumero" >
 			<form id="FormIngreso">
-				<input type="text"  id="Respuesta">
+				<input type="text"  id="Respuesta" ng-model="datos.respuesta">
 				<center>
 					<img src="imagenes/interrogacion.jpg" >
 				</center>
 				
 			</form>
-			<button  class="MiBotonUTN" onclick="Responder()" >Aceptar</button>
+			<button  class="MiBotonUTN" ng-click="Responder()" >Aceptar</button>
+			<br/>
+			{{resultado}}
 		</div>
 		<div class="CajaUno animated bounceInLeft">
 			

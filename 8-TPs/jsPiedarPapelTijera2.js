@@ -1,9 +1,13 @@
+
+var app = angular.module('PiedarPapelTijera2', []);//primer parametro es el nombre de modulo. puede tener muchos modulos
+
+app.controller("controladorPiedarPapelTijera2", function($scope){
 var eleccionMaquina;
 var ContadorDeEmpates=0;
 var ContadorDeGanadas=0;
 var ContadorDePerdidas=0;
-
-function comenzar()
+$scope.datos={};
+$scope.comenzar=function()
 {
 	//Genero el número RANDOM entre 1 y 3
 	 	numeroSecreto =Math.floor( Math.random()*3)+1;
@@ -22,83 +26,84 @@ function comenzar()
 
 		}
 		//alert(eleccionMaquina);
-
-
-
+		return eleccionMaquina;
+		
 }//FIN DE LA FUNCIÓN
-function piedra()
+
+$scope.piedra = function()
 {
-	alert("la maquina selecciono: "+eleccionMaquina);
+	$scope.seleccionMaquina="la maquina selecciono: "+eleccionMaquina;
 	eleccionHumano="piedra";
 	if(eleccionHumano==eleccionMaquina)
 	{
-		alert("empate.");	
-		ContadorDeEmpates++;	
+		$scope.resultado="empate.";
+		ContadorDeEmpates++;			
 	}
 	else if(eleccionMaquina=="tijera")
 	{
-		alert("vos ganastes.");
+		$scope.resultado="vos ganastes.";
 		ContadorDeGanadas++;
 	}
 	else
 	{
-		alert("ganó la Maquina.");
+		$scope.resultado="ganó la Maquina.";
 		ContadorDePerdidas++;
 	}
-
-mostarResultado();
-
+	$scope.mostrarResultado();
 }//FIN DE LA FUNCIÓN
-function papel()
+
+$scope.papel = function()
 {
-	alert("la maquina selecciono: "+eleccionMaquina);
+	$scope.seleccionMaquina="la maquina selecciono: "+eleccionMaquina;
 	eleccionHumano="papel";
 	if(eleccionHumano==eleccionMaquina)
 	{
-		alert("empate.");
-		ContadorDeEmpates++;		
-
+		$scope.resultado="empate.";
+		ContadorDeEmpates++;	
 	}
 	else if(eleccionMaquina=="piedra")
 	{
-		alert("vos ganastes.");
+		$scope.resultado="vos ganastes.";
 		ContadorDeGanadas++;
 	}
 	else
 	{
-		alert("ganó la Maquina.");
+		$scope.resultado="ganó la Maquina.";
 		ContadorDePerdidas++;
 	}
-mostarResultado();
+	$scope.mostrarResultado();
 }//FIN DE LA FUNCIÓN
-function tijera()
+
+$scope.tijera = function()
 {
-	alert("la maquina selecciono: "+eleccionMaquina);
+	$scope.seleccionMaquina="la maquina selecciono: "+eleccionMaquina;
 	eleccionHumano="tijera";
 	if(eleccionHumano==eleccionMaquina)
 	{
-		alert("empate.");
+		$scope.resultado="empate.";
 		ContadorDeEmpates++;		
 	}
 	else if(eleccionMaquina=="papel")
 	{
-		alert("vos ganastes.");
+		$scope.resultado="vos ganastes.";
 		ContadorDeGanadas++;
 	}
 	else
 	{
-		alert("ganó la Maquina.");
+		$scope.resultado="ganó la Maquina.";
 		ContadorDePerdidas++;
 	}
-mostarResultado();
+	$scope.mostrarResultado();
 }//FIN DE LA FUNCIÓN
 
-function mostarResultado()
+$scope.mostrarResultado = function()
 {
 
-document.getElementById('empatadas').value=ContadorDeEmpates + " partidas empatadas.";
-document.getElementById('perdidas').value=ContadorDePerdidas + " partidas perdidas.";
-document.getElementById('ganadas').value=ContadorDeGanadas + " partidas ganadas.";
+	$scope.datos.empatadas=ContadorDeEmpates + " partidas empatadas.";
+	$scope.datos.perdidas=ContadorDePerdidas + " partidas perdidas.";
+	$scope.datos.ganadas=ContadorDeGanadas + " partidas ganadas.";
 
-comenzar();
+	$scope.comenzar();
 }
+
+});//cada vez que se recarga la pagina se recarga el controlador

@@ -9,14 +9,17 @@
 		<link rel="stylesheet" type="text/css" href="../animacion.css">
 		<!--final de Estilos-->
 
+<!-- 1)Es necesario para que funcione angular la referencia a este archivo-->
+		<script SRC="bower_components/angular/angular.min.js" TYPE="text/javascript"></script>
+
 		<!--Lógica-Programación-->
 		<script type="text/javascript" src="jsPiedarPapelTijera1.js"></script>
         <!--Final de Lógica-Programación -->
 		
 
 		</head>
-	<body onload="comenzar()">
-		<div class="CajaUno animated bounceInDown">
+	<body ng-app="PiedarPapelTijera1" ng-controller="controladorPiedarPapelTijera1" ng-init="comenzar()">
+		<div class="CajaUno animated bounceInDown" >
 			
 		
 			<form id="FormIngreso">
@@ -32,15 +35,14 @@
 
 			
 			
-			<img class="PiedraPapelTijera animated zoomInRight " src="imagenes/piedra.jpg" onclick="piedra()">
-			<img class="PiedraPapelTijera animated zoomInUp" src="imagenes/papel.jpg" onclick="papel()">
-			<img class="PiedraPapelTijera animated zoomInLeft"  src="imagenes/tijera.jpg" onclick="tijera()">
+			<img class="PiedraPapelTijera animated zoomInRight " src="imagenes/piedra.jpg" ng-click="piedra()">
+			<img class="PiedraPapelTijera animated zoomInUp" src="imagenes/papel.jpg" ng-click="papel()">
+			<img class="PiedraPapelTijera animated zoomInLeft"  src="imagenes/tijera.jpg" ng-click="tijera()">
+			<br/>
+			{{seleccionMaquina}}
+			<br/>
+			{{resultado}}
 			
-			
-
-			
-
-
 		</div>
 
 		<div class="CajaEnunciado animated bounceInLeft">

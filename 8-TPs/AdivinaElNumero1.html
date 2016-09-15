@@ -9,33 +9,38 @@
 		<link rel="stylesheet" type="text/css" href="../animacion.css">
 		<!--final de Estilos-->
 
+<!-- 1)Es necesario para que funcione angular la referencia a este archivo-->
+		<script SRC="bower_components/angular/angular.min.js" TYPE="text/javascript"></script>
 		<!--Lógica-Programación-->
 		<script type="text/javascript" src="jsAdivinaElNumero1.js"></script>
         <!--Final de Lógica-Programación -->
 		
 
 		</head>
-	<body>
+	<body  ng-app="AdivinaElNumero1" ng-controller="controladorAdivinaElNumero1">
 		<div class="CajaUno animated bounceInDown">
 			
 		
 			<form id="FormIngreso">
 
-				<input type="text"  placeholder="Ingrese número" id="numero">
+				<input type="text"  placeholder="Ingrese número" id="numero" ng-model="datos.numero">
 				
 				<br>
-				<input type="text"  placeholder="intentos" readonly id="intentos">
+				<input type="text"  placeholder="intentos" readonly id="intentos" ng-model="datos.intentos">
 			</form>
-			
+		
 		</div>
+
 		<div class="CajaUno animated bounceInLeft">
 			
-		<button style="height:5em;"  class="MiBotonUTN"  onclick="verificar()" >Verificar</button>
+		<button style="height:5em;"  class="MiBotonUTN"  ng-click="Verificar()" >Verificar</button>
 			
-			<button  class="MiBotonUTN" onclick="comenzar()" >Comenzar</button>
-
+			<button  class="MiBotonUTN" ng-click="Comenzar()" >Comenzar</button>
+		<br/>
+        {{resultado}} 
 		</div>
 
+        
 		<div class="CajaEnunciado animated bounceInLeft">
 			<h2>Enunciado:</h2>
 			
